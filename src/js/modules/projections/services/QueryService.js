@@ -12,7 +12,6 @@ define(['./_module'], function (app) {
 					create: function (source, params) {
 						var qp = uriProvider.getQuery(params),
 							url = urlBuilder.build(urls.query.create) + qp;
-
 						return $http.post(url, source);
 					},
 					update: function (url, source) {

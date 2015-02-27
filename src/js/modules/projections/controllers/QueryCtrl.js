@@ -66,20 +66,14 @@ define(['./_module'], function (app) {
 				var updated = queryService.update(location, $scope.query);
 				
 				updated.success(function () {
-
 					var enabled = queryService.enable(location);
-					// start monitoring ms before query will be enabled
-					monitorState();
-
+					enabled.success(function(){
+						monitorState();
+					});
 					enabled.error(function () {
 						msg.failure('Could not start query');
 						monitor.stop();
 					});
-
-					//var disable = queryService.disable(location);
-					//disable.success(function () {
-						
-					//});
 				})
 				.error(function () {
 					msg.failure('Query not updated');
@@ -117,8 +111,14 @@ define(['./_module'], function (app) {
 			$scope.stop = function () {
 
 				var disable = stopAndDisable();
-				
+				disable.success(function onDisabled(){
+					$scope.isStopped = true;
+				});
 				disable.error(function () {
+					if(response == 'Not enabled'){
+						$scope.isStopped = true;
+						return;
+					}
 					msg.failure('Could not break query');
 				});
 			};
