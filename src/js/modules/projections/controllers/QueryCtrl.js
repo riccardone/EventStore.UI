@@ -11,7 +11,7 @@ define(['./_module'], function (app) {
 
 			var location;
 
-			function create () {
+			function create (runAfterCreate, success) {
 				var param = {
 					emit: 'no',
 					checkpoints: 'no',
@@ -22,7 +22,12 @@ define(['./_module'], function (app) {
 				.success(function (data, status, headers) {
 					location = headers()['location'];
 					$scope.isCreated = true;
-					run();
+					if(runAfterCreate){
+						run();
+					}
+					if(success){
+						success();
+					}
 				})
 				.error(function () {
 					$scope.isCreated = false;
@@ -110,7 +115,7 @@ define(['./_module'], function (app) {
 				if($scope.isCreated) {
 					run();
 				} else {
-					create();
+					create(true);
 				}
 			};
 
@@ -124,11 +129,13 @@ define(['./_module'], function (app) {
 			};
 
 			$scope.debug = function () {
-				$state.go('projections.item.debug', { 
-					location: encodeURIComponent(location) 
-				}, { 
-					inherit: false 
-				});
+				create(false, function onCreation(){	
+					$state.go('projections.item.debug', {
+						location: encodeURIComponent(location)
+					}, { 
+						inherit: false 
+					});
+				});	
 			};
 
 			var unbindHandler = $scope.$watch('query', function(scope, newValue, oldValue) {

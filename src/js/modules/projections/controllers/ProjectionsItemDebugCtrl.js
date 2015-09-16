@@ -47,10 +47,14 @@ define(['./_module'], function (app) {
 		    var stats = projectionsService.statistics($scope.location);
 		    var state = projectionsService.state($scope.location);
 		    var query = projectionsService.query($scope.location);
+		    var disable = projectionsService.enable($scope.location);
+		    var enable = projectionsService.enable($scope.location);
 
 		    requests.push(stats);
 		    requests.push(state);
 		    requests.push(query);
+		    requests.push(disable);
+		    requests.push(enable);
 
 		    $q.allSettled(requests)
 			.then(function (data) {
