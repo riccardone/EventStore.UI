@@ -22,7 +22,7 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('projections.item.delete.tpl.html',
     '<header class=page-header><h2 class=page-title>Delete Projection</h2><ul class=page-nav><li class=page-nav__item><a ng-click=remove($event) href=#>Confirm Delete</a> <a ui-sref=^.details>Back</a></li></ul></header><table><tbody><tr><td>Name</td><td><span>{{ projection.name }}</span></td></tr><tr><td>State</td><td><span>{{ projection.state }}</span></td></tr><tr><td>Source</td><td><pre>\n' +
     '{{ projection.source }}\n' +
-    '				</pre></td></tr><tr><td></td><td><label><input type=checkbox ng-model=deleteCheckpoint> Delete Checkpoint Stream</label></td></tr><tr><td></td><td><label><input type=checkbox ng-model=deleteState> Delete State Stream</label></td></tr></tbody></table>');
+    '				</pre></td></tr><tr><td></td><td><label><input type=checkbox ng-model=deleteCheckpoint> Delete Checkpoint Stream</label></td></tr><tr><td></td><td><label><input type=checkbox ng-model=deleteState> Delete State Stream</label></td></tr><tr><td></td><td><label><input type=checkbox ng-model=deleteEmittedStreams> Delete Emitted Streams</label></td></tr></tbody></table>');
 }]);
 })();
 
