@@ -29,6 +29,7 @@ define(['./_module'], function (app) {
 			$scope.enabled = true;
 			$scope.checkpointsDisabled = false;
 			$scope.checkpoints = false;
+			$scope.trackEmittedStreams = false;
 
 			$scope.save = function () {
 
@@ -41,7 +42,8 @@ define(['./_module'], function (app) {
 					name: $scope.name,
 					emit: yesOrNo($scope.emit),
 					checkpoints: yesOrNo($scope.checkpoints),
-					enabled: yesOrNo($scope.enabled)
+					enabled: yesOrNo($scope.enabled),
+					trackemittedstreams: yesOrNo($scope.trackEmittedStreams),
 				};
 
 				projectionsService.create($scope.mode, $scope.source, param)
