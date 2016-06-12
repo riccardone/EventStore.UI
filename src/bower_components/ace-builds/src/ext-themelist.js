@@ -10,12 +10,14 @@ var themeData = [
     ["Dreamweaver"    ],
     ["Eclipse"        ],
     ["GitHub"         ],
+    ["IPlastic"       ],
     ["Solarized Light"],
     ["TextMate"       ],
     ["Tomorrow"       ],
     ["XCode"          ],
     ["Kuroir"],
     ["KatzenMilch"],
+    ["SQL Server"           ,"sqlserver"               , "light"],
     ["Ambiance"             ,"ambiance"                ,  "dark"],
     ["Chaos"                ,"chaos"                   ,  "dark"],
     ["Clouds Midnight"      ,"clouds_midnight"         ,  "dark"],
@@ -52,7 +54,6 @@ exports.themes = themeData.map(function(data) {
 });
 
 });
-;
                 (function() {
                     window.require(["ace/ext/themelist"], function() {});
                 })();

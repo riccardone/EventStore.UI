@@ -5,6 +5,7 @@ define([
 	'uiAce',
 	'ngToastr',
 	'./modules/projections/module',
+    './modules/profilers/module',
 	'./modules/admin/module',
 	'./modules/dashboard/module',
 	'./modules/clusterstatus/module',
@@ -22,6 +23,7 @@ define([
 
 	return ng.module('es-ui', [
 		'es-ui.projections',
+        'es-ui.profilers',
 		'es-ui.admin',
 		'es-ui.dashboard',
 		'es-ui.clusterstatus',

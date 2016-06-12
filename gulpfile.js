@@ -193,6 +193,9 @@ gulp.task('html', function () {
 	templateForModule('./src/views/*.tpl.html', 
         './src/js/templates', 
         'es-ui.templates');
+	templateForModule('./src/js/modules/profilers/views/*.tpl.html',
+        './src/js/modules/profilers/templates',
+        'es-ui.profilers.templates');
     templateForModule('./src/js/modules/projections/views/*.tpl.html',
         './src/js/modules/projections/templates',
         'es-ui.projections.templates');
